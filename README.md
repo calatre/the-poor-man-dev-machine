@@ -18,10 +18,14 @@ First, DevPod needs API access to create machines in your Hetzner Cloud account.
 
 1.  **Get an API Token:** Log in to your Hetzner Cloud Console. Create a new project, and in that project, go to `Security` -> `API tokens` and generate a new **Read & Write** token. Copy this token immediately as it will only be shown once.
 
-2.  **Add Provider to DevPod:** Open your terminal and add the Hetzner provider. DevPod will prompt you to enter the token.
+2.  **Add Provider to DevPod:** 
+   I used the graphical interface. For command line, I advise you to check the repository mrsimonemms/devpod-provider-hetzner for instructions:
+   
+   
+   Open your terminal and add the Hetzner provider. DevPod will prompt you to enter the token.
 
     ```bash
-    devpod provider add hetzner
+    devpod provider add mrsimonemms/devpod-provider-hetzner
     ```
 
     Follow the prompts, give it a name (e.g., `my-hetzner`), and paste your API token when asked.

@@ -35,3 +35,29 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Project-local documentation that should not be committed
+context.md
+
+# Packer artifacts and var files
+packer_cache/
+packer.log
+*.pkr.hcl
+!packer.pkr.hcl
+*.pkrvars.hcl
+*.auto.pkrvars.hcl
+*.pkrvars.json
+
+# SSH keys and ssh folders (rule: ignore any file in a ssh folder)
+ssh/
+.ssh/
+**/ssh/**
+**/.ssh/**
+id_*
+*.pem
+
+# Local environment files
+.env
+.env.*
+local.*.tfvars
+local.*.pkrvars.hcl

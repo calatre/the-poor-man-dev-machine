@@ -1,0 +1,36 @@
+{
+  "name": "Ubuntu GUI (Python, Terraform, AWS, Docker)",
+  // This base image is multi-arch and supports both amd64 and arm64
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+  "features": {
+    // Add the Python feature and specify version 3.11
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers/features/aws-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-from-docker:1": {
+      "version": "latest",
+      "dockerDashComposeVersion": "v2"
+    }
+  },
+
+  "forwardPorts": [4000, 8080],
+
+  // This command now detects the architecture and downloads the correct NoMachine package
+  //"postCreateCommand": "sudo /bin/bash -c \"ARCH=$(uname -m); if [ \\\"$ARCH\\\" = \\\"aarch64\\\" ]; then NOMACHINE_URL='https://download.nomachine.com/download/8.12/Linux/nomachine_8.12.12_1_arm64.deb'; else NOMACHINE_URL='https://download.nomachine.com/download/8.12/Linux/nomachine_8.12.12_1_amd64.deb'; fi && apt-get update && export DEBIAN_FRONTEND=noninteractive && apt-get install -y --no-install-recommends xfce4 xfce4-goodies wget && apt-get clean && rm -rf /var/lib/apt/lists/* && wget \\\"$NOMACHINE_URL\\\" -O nomachine.deb && dpkg -i nomachine.deb && rm nomachine.deb && echo 'GUI and NoMachine installed. Run \\'sudo passwd vscode\\' in the terminal to set a password for GUI login.'\"",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python", // Python extension
+        "hashicorp.terraform",
+        "amazonwebservices.aws-toolkit-vscode",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode"
+}
