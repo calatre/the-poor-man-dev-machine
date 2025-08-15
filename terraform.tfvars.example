@@ -1,8 +1,0 @@
-# Example variables for Terraform/OpenTofu. Do NOT put real secrets here.
-# Prefer using environment variables (TF_VAR_hcloud_token, TF_VAR_ssh_public_key_path or HCLOUD_TOKEN).
-
-# Hetzner Cloud token (prefer env: TF_VAR_hcloud_token or HCLOUD_TOKEN)
-# hcloud_token = "REPLACE_ME"
-
-# Path to your SSH public key used to register on Hetzner
-ssh_public_key_path = "C:\\Users\\andre\\.ssh\\new-workbench.pub"

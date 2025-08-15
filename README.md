@@ -48,7 +48,32 @@ Both Packer and OpenTofu need your Hetzner Cloud API token.
     ```bash
     export HCLOUD_TOKEN="your_hetzner_api_token"
     ```
-On Windows, I have a small powershell script that does it.
+
+   Alternatively, use the example scripts to load your Hetzner token and SSH public key path into this shell session:
+
+   - PowerShell (Windows):
+
+     ```powershell
+     .\scripts\load-dev-secrets-example.ps1 -TokenPath "<your-hetzner-token-path>" -SshPublicKeyPath "<your-ssh-key-path>"
+     ```
+
+   - Unix shells (bash/zsh):
+
+     ```bash
+     source ./scripts/load-dev-secrets-example.sh "<your-hetzner-token-path>" "<your-ssh-key-path>"
+     ```
+
+   These scripts set the following environment variables for you:
+
+   - `TF_VAR_hcloud_token`
+   - `HCLOUD_TOKEN`
+   - `PACKER_VAR_hcloud_token`
+   - `TF_VAR_ssh_public_key_path`
+
+   Notes:
+   - Replace the placeholders with your real local paths (e.g., `C:\Users\you\.ssh\id_ed25519.pem` on Windows or `$HOME/.ssh/id_ed25519.pem` on Unix).
+   - You can also just hardcode your localpaths or variables in the script of course. (I would say easier if you launch multiple times)
+
 ### Step 2: Build the Packer Image
 
 Navigate to the `packer` directory and run the build command.

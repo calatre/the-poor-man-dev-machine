@@ -38,6 +38,7 @@ terraform.rc
 
 # Project-local documentation that should not be committed
 context.md
+warp.md
 
 # Packer artifacts and var files
 packer_cache/
@@ -61,3 +62,9 @@ id_*
 .env.*
 local.*.tfvars
 local.*.pkrvars.hcl
+
+# Local helper scripts (do not commit personal secret loaders)
+scripts/load-dev-secrets.ps1
+# Keep example templates tracked
+!scripts/load-dev-secrets-example.ps1
+!scripts/load-dev-secrets-example.sh
