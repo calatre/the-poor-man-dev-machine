@@ -69,13 +69,13 @@ fi
 echo "Extracted Snapshot ID: $SNAPSHOT_ID"
 
 # Generate the Terraform/OpenTofu tfvars file
-TFVARS_CONTENT="hcloud_image_id = \"$SNAPSHOT_ID\""
-TFVARS_PATH="$(pwd)/image.auto.tfvars"
+TFVARS_CONTENT="hcloud_snapshot_id = \"$SNAPSHOT_ID\""
+TFVARS_PATH="$(pwd)/snapshot.auto.tfvars"
 
 echo ""
 echo "Writing to $TFVARS_PATH"
 echo "$TFVARS_CONTENT" > "$TFVARS_PATH"
-echo "✓ Created image.auto.tfvars"
+echo "✓ Created snapshot.auto.tfvars"
 
 # Get timestamps
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')

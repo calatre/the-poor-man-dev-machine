@@ -1,0 +1,8 @@
+# Snapshot-first config for OpenTofu/Terraform
+#
+# Set hcloud_snapshot_id to pin a specific snapshot ID. If left unset, main.tf will
+# automatically use the most recent snapshot available in your Hetzner project.
+#
+# Example:
+# hcloud_snapshot_id = "12345678"
+

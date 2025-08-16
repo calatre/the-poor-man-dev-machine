@@ -40,13 +40,13 @@ if ($ArtifactId -match 'hcloud:snapshot:([0-9]+)') {
 Write-Host "Extracted Snapshot ID: $snapshotId"
 
 # Generate the Terraform/OpenTofu tfvars file
-$tfvarsContent = "hcloud_image_id = `"$snapshotId`""
-$tfvarsPath = Join-Path (Get-Location) "image.auto.tfvars"
+$tfvarsContent = "hcloud_snapshot_id = `"$snapshotId`""
+$tfvarsPath = Join-Path (Get-Location) "snapshot.auto.tfvars"
 
 Write-Host ""
 Write-Host "Writing to $tfvarsPath"
 Set-Content -Path $tfvarsPath -Value $tfvarsContent -Encoding ascii
-Write-Host "Created image.auto.tfvars"
+Write-Host "Created snapshot.auto.tfvars"
 
 # Generate a manifest file with build information
 $manifest = @{
