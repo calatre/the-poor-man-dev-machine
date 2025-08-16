@@ -1,0 +1,22 @@
+#cloud-config
+write_files:
+  - path: /etc/default/keyboard
+    permissions: "0644"
+    content: |
+      XKBMODEL="pc105"
+      XKBLAYOUT="pt"
+      XKBVARIANT=""
+      XKBOPTIONS=""
+      BACKSPACE="guess"
+  - path: /etc/X11/xorg.conf.d/00-keyboard.conf
+    permissions: "0644"
+    content: |
+      Section "InputClass"
+          Identifier "system-keyboard"
+          MatchIsKeyboard "on"
+          Option "XkbLayout" "pt"
+          Option "XkbModel" "pc105"
+      EndSection
+runcmd:
+  - [ bash, -lc, "setupcon -k || true" ]
+

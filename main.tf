@@ -22,6 +22,9 @@ resource "hcloud_server" "cax31" {
   image    = coalesce(var.snapshot, var.image)
   location = "nbg1" # nuremberg
   ssh_keys = [hcloud_ssh_key.default.id]
+
+  # Apply system keyboard layout at boot via cloud-init
+  user_data = file("${path.module}/cloud-config.yaml")
 }
 
 resource "hcloud_firewall" "allow-ssh-app" {

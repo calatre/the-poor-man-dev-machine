@@ -68,3 +68,17 @@ scripts/load-dev-secrets.ps1
 # Keep example templates tracked
 !scripts/load-dev-secrets-example.ps1
 !scripts/load-dev-secrets-example.sh
+
+# Build artifacts and history
+build/
+build-history/
+build-history.jsonl
+*.build
+*.build.log
+build.log
+build-manifest*
+manifest.json
+manifest.*.json
+*.manifest
+packer-build-*
+build-*.json
